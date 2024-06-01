@@ -1,5 +1,6 @@
 // auto-generated: "lalrpop 0.20.2"
-// sha3: e892d604f7a78717d9545fe091048ad8bfccf9fc3f5259f5103e7f713c711f83
+// sha3: 786f79da4ffbce2cf8c006313f88148a04abe613b306906d2922b431a7b617be
+use crate::ast::{FuncType, CompUnit, Stmt, Block, FuncDef};
 #[allow(unused_extern_crates)]
 extern crate lalrpop_util as __lalrpop_util;
 #[allow(unused_imports)]
@@ -11,6 +12,7 @@ extern crate alloc;
 #[allow(non_snake_case, non_camel_case_types, unused_mut, unused_variables, unused_imports, unused_parens, clippy::needless_lifetimes, clippy::type_complexity, clippy::needless_return, clippy::too_many_arguments, clippy::never_loop, clippy::match_single_binding, clippy::needless_raw_string_hashes)]
 mod __parse__CompUnit {
 
+    use crate::ast::{FuncType, CompUnit, Stmt, Block, FuncDef};
     #[allow(unused_extern_crates)]
     extern crate lalrpop_util as __lalrpop_util;
     #[allow(unused_imports)]
@@ -22,8 +24,13 @@ mod __parse__CompUnit {
     pub(crate) enum __Symbol<'input>
      {
         Variant0(&'input str),
-        Variant1(String),
-        Variant2(i32),
+        Variant1(Block),
+        Variant2(CompUnit),
+        Variant3(FuncDef),
+        Variant4(FuncType),
+        Variant5(String),
+        Variant6(i32),
+        Variant7(Stmt),
     }
     const __ACTION: &[i8] = &[
         // State 0
@@ -177,7 +184,7 @@ mod __parse__CompUnit {
         type Token = Token<'input>;
         type TokenIndex = usize;
         type Symbol = __Symbol<'input>;
-        type Success = String;
+        type Success = CompUnit;
         type StateIndex = i8;
         type Action = i8;
         type ReduceIndex = i8;
@@ -272,17 +279,17 @@ mod __parse__CompUnit {
     ) -> Option<usize>
     {
         match *__token {
-            Token(6, _) if true => Some(0),
-            Token(7, _) if true => Some(1),
-            Token(8, _) if true => Some(2),
-            Token(9, _) if true => Some(3),
-            Token(10, _) if true => Some(4),
-            Token(11, _) if true => Some(5),
-            Token(12, _) if true => Some(6),
-            Token(1, _) if true => Some(7),
-            Token(2, _) if true => Some(8),
-            Token(3, _) if true => Some(9),
-            Token(4, _) if true => Some(10),
+            Token(7, _) if true => Some(0),
+            Token(8, _) if true => Some(1),
+            Token(9, _) if true => Some(2),
+            Token(10, _) if true => Some(3),
+            Token(11, _) if true => Some(4),
+            Token(12, _) if true => Some(5),
+            Token(13, _) if true => Some(6),
+            Token(2, _) if true => Some(7),
+            Token(3, _) if true => Some(8),
+            Token(4, _) if true => Some(9),
+            Token(5, _) if true => Some(10),
             _ => None,
         }
     }
@@ -296,7 +303,7 @@ mod __parse__CompUnit {
     {
         #[allow(clippy::manual_range_patterns)]match __token_index {
             0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 => match __token {
-                Token(6, __tok0) | Token(7, __tok0) | Token(8, __tok0) | Token(9, __tok0) | Token(10, __tok0) | Token(11, __tok0) | Token(12, __tok0) | Token(1, __tok0) | Token(2, __tok0) | Token(3, __tok0) | Token(4, __tok0) if true => __Symbol::Variant0(__tok0),
+                Token(7, __tok0) | Token(8, __tok0) | Token(9, __tok0) | Token(10, __tok0) | Token(11, __tok0) | Token(12, __tok0) | Token(13, __tok0) | Token(2, __tok0) | Token(3, __tok0) | Token(4, __tok0) | Token(5, __tok0) if true => __Symbol::Variant0(__tok0),
                 _ => unreachable!(),
             },
             _ => unreachable!(),
@@ -395,7 +402,7 @@ mod __parse__CompUnit {
         >(
             &self,
             input: &'input str,
-        ) -> Result<String, __lalrpop_util::ParseError<usize, Token<'input>, &'static str>>
+        ) -> Result<CompUnit, __lalrpop_util::ParseError<usize, Token<'input>, &'static str>>
         {
             let mut __tokens = self.builder.matcher(input);
             __state_machine::Parser::drive(
@@ -449,7 +456,7 @@ mod __parse__CompUnit {
         __states: &mut alloc::vec::Vec<i8>,
         __symbols: &mut alloc::vec::Vec<(usize,__Symbol<'input>,usize)>,
         _: core::marker::PhantomData<(&'input ())>,
-    ) -> Option<Result<String,__lalrpop_util::ParseError<usize, Token<'input>, &'static str>>>
+    ) -> Option<Result<CompUnit,__lalrpop_util::ParseError<usize, Token<'input>, &'static str>>>
     {
         let (__pop_states, __nonterminal) = match __action {
             0 => {
@@ -484,7 +491,7 @@ mod __parse__CompUnit {
             }
             10 => {
                 // __CompUnit = CompUnit => ActionFn(0);
-                let __sym0 = __pop_Variant1(__symbols);
+                let __sym0 = __pop_Variant2(__symbols);
                 let __start = __sym0.0;
                 let __end = __sym0.2;
                 let __nt = super::__action0::<>(input, __sym0);
@@ -507,7 +514,7 @@ mod __parse__CompUnit {
       'input,
     >(
         __symbols: &mut alloc::vec::Vec<(usize,__Symbol<'input>,usize)>
-    ) -> (usize, String, usize)
+    ) -> (usize, Block, usize)
      {
         match __symbols.pop() {
             Some((__l, __Symbol::Variant1(__v), __r)) => (__l, __v, __r),
@@ -518,10 +525,65 @@ mod __parse__CompUnit {
       'input,
     >(
         __symbols: &mut alloc::vec::Vec<(usize,__Symbol<'input>,usize)>
-    ) -> (usize, i32, usize)
+    ) -> (usize, CompUnit, usize)
      {
         match __symbols.pop() {
             Some((__l, __Symbol::Variant2(__v), __r)) => (__l, __v, __r),
+            _ => __symbol_type_mismatch()
+        }
+    }
+    fn __pop_Variant3<
+      'input,
+    >(
+        __symbols: &mut alloc::vec::Vec<(usize,__Symbol<'input>,usize)>
+    ) -> (usize, FuncDef, usize)
+     {
+        match __symbols.pop() {
+            Some((__l, __Symbol::Variant3(__v), __r)) => (__l, __v, __r),
+            _ => __symbol_type_mismatch()
+        }
+    }
+    fn __pop_Variant4<
+      'input,
+    >(
+        __symbols: &mut alloc::vec::Vec<(usize,__Symbol<'input>,usize)>
+    ) -> (usize, FuncType, usize)
+     {
+        match __symbols.pop() {
+            Some((__l, __Symbol::Variant4(__v), __r)) => (__l, __v, __r),
+            _ => __symbol_type_mismatch()
+        }
+    }
+    fn __pop_Variant7<
+      'input,
+    >(
+        __symbols: &mut alloc::vec::Vec<(usize,__Symbol<'input>,usize)>
+    ) -> (usize, Stmt, usize)
+     {
+        match __symbols.pop() {
+            Some((__l, __Symbol::Variant7(__v), __r)) => (__l, __v, __r),
+            _ => __symbol_type_mismatch()
+        }
+    }
+    fn __pop_Variant5<
+      'input,
+    >(
+        __symbols: &mut alloc::vec::Vec<(usize,__Symbol<'input>,usize)>
+    ) -> (usize, String, usize)
+     {
+        match __symbols.pop() {
+            Some((__l, __Symbol::Variant5(__v), __r)) => (__l, __v, __r),
+            _ => __symbol_type_mismatch()
+        }
+    }
+    fn __pop_Variant6<
+      'input,
+    >(
+        __symbols: &mut alloc::vec::Vec<(usize,__Symbol<'input>,usize)>
+    ) -> (usize, i32, usize)
+     {
+        match __symbols.pop() {
+            Some((__l, __Symbol::Variant6(__v), __r)) => (__l, __v, __r),
             _ => __symbol_type_mismatch()
         }
     }
@@ -548,7 +610,7 @@ mod __parse__CompUnit {
         // Block = "{", Stmt, "}" => ActionFn(4);
         assert!(__symbols.len() >= 3);
         let __sym2 = __pop_Variant0(__symbols);
-        let __sym1 = __pop_Variant1(__symbols);
+        let __sym1 = __pop_Variant7(__symbols);
         let __sym0 = __pop_Variant0(__symbols);
         let __start = __sym0.0;
         let __end = __sym2.2;
@@ -566,11 +628,11 @@ mod __parse__CompUnit {
     ) -> (usize, usize)
     {
         // CompUnit = FuncDef => ActionFn(1);
-        let __sym0 = __pop_Variant1(__symbols);
+        let __sym0 = __pop_Variant3(__symbols);
         let __start = __sym0.0;
         let __end = __sym0.2;
         let __nt = super::__action1::<>(input, __sym0);
-        __symbols.push((__start, __Symbol::Variant1(__nt), __end));
+        __symbols.push((__start, __Symbol::Variant2(__nt), __end));
         (1, 1)
     }
     fn __reduce2<
@@ -587,12 +649,12 @@ mod __parse__CompUnit {
         let __sym4 = __pop_Variant1(__symbols);
         let __sym3 = __pop_Variant0(__symbols);
         let __sym2 = __pop_Variant0(__symbols);
-        let __sym1 = __pop_Variant1(__symbols);
-        let __sym0 = __pop_Variant1(__symbols);
+        let __sym1 = __pop_Variant5(__symbols);
+        let __sym0 = __pop_Variant4(__symbols);
         let __start = __sym0.0;
         let __end = __sym4.2;
         let __nt = super::__action2::<>(input, __sym0, __sym1, __sym2, __sym3, __sym4);
-        __symbols.push((__start, __Symbol::Variant1(__nt), __end));
+        __symbols.push((__start, __Symbol::Variant3(__nt), __end));
         (5, 2)
     }
     fn __reduce3<
@@ -609,7 +671,7 @@ mod __parse__CompUnit {
         let __start = __sym0.0;
         let __end = __sym0.2;
         let __nt = super::__action3::<>(input, __sym0);
-        __symbols.push((__start, __Symbol::Variant1(__nt), __end));
+        __symbols.push((__start, __Symbol::Variant4(__nt), __end));
         (1, 3)
     }
     fn __reduce4<
@@ -626,7 +688,7 @@ mod __parse__CompUnit {
         let __start = __sym0.0;
         let __end = __sym0.2;
         let __nt = super::__action7::<>(input, __sym0);
-        __symbols.push((__start, __Symbol::Variant1(__nt), __end));
+        __symbols.push((__start, __Symbol::Variant5(__nt), __end));
         (1, 4)
     }
     fn __reduce5<
@@ -643,7 +705,7 @@ mod __parse__CompUnit {
         let __start = __sym0.0;
         let __end = __sym0.2;
         let __nt = super::__action8::<>(input, __sym0);
-        __symbols.push((__start, __Symbol::Variant2(__nt), __end));
+        __symbols.push((__start, __Symbol::Variant6(__nt), __end));
         (1, 5)
     }
     fn __reduce6<
@@ -660,7 +722,7 @@ mod __parse__CompUnit {
         let __start = __sym0.0;
         let __end = __sym0.2;
         let __nt = super::__action9::<>(input, __sym0);
-        __symbols.push((__start, __Symbol::Variant2(__nt), __end));
+        __symbols.push((__start, __Symbol::Variant6(__nt), __end));
         (1, 5)
     }
     fn __reduce7<
@@ -677,7 +739,7 @@ mod __parse__CompUnit {
         let __start = __sym0.0;
         let __end = __sym0.2;
         let __nt = super::__action10::<>(input, __sym0);
-        __symbols.push((__start, __Symbol::Variant2(__nt), __end));
+        __symbols.push((__start, __Symbol::Variant6(__nt), __end));
         (1, 5)
     }
     fn __reduce8<
@@ -690,11 +752,11 @@ mod __parse__CompUnit {
     ) -> (usize, usize)
     {
         // Number = IntConst => ActionFn(6);
-        let __sym0 = __pop_Variant2(__symbols);
+        let __sym0 = __pop_Variant6(__symbols);
         let __start = __sym0.0;
         let __end = __sym0.2;
         let __nt = super::__action6::<>(input, __sym0);
-        __symbols.push((__start, __Symbol::Variant1(__nt), __end));
+        __symbols.push((__start, __Symbol::Variant6(__nt), __end));
         (1, 6)
     }
     fn __reduce9<
@@ -709,12 +771,12 @@ mod __parse__CompUnit {
         // Stmt = "return", Number, ";" => ActionFn(5);
         assert!(__symbols.len() >= 3);
         let __sym2 = __pop_Variant0(__symbols);
-        let __sym1 = __pop_Variant1(__symbols);
+        let __sym1 = __pop_Variant6(__symbols);
         let __sym0 = __pop_Variant0(__symbols);
         let __start = __sym0.0;
         let __end = __sym2.2;
         let __nt = super::__action5::<>(input, __sym0, __sym1, __sym2);
-        __symbols.push((__start, __Symbol::Variant1(__nt), __end));
+        __symbols.push((__start, __Symbol::Variant7(__nt), __end));
         (3, 7)
     }
 }
@@ -723,6 +785,7 @@ pub use self::__parse__CompUnit::CompUnitParser;
 #[rustfmt::skip]
 mod __intern_token {
     #![allow(unused_imports)]
+    use crate::ast::{FuncType, CompUnit, Stmt, Block, FuncDef};
     #[allow(unused_extern_crates)]
     extern crate lalrpop_util as __lalrpop_util;
     #[allow(unused_imports)]
@@ -732,6 +795,7 @@ mod __intern_token {
     pub fn new_builder() -> __lalrpop_util::lexer::MatcherBuilder {
         let __strs: &[(&str, bool)] = &[
             ("(?:(?://)[\0-\t\u{b}\u{c}\u{e}-\u{10ffff}]*[\n\r]*)", true),
+            ("(?:(?:/\\*)((?:[\0-\\)\\+-\u{10ffff}]|((?:\\*+[\0-\\)\\+-\\.0-\u{10ffff}]))))*\\*+/)", true),
             ("(?:0[0-7]*)", false),
             ("(?:0[Xx][0-9A-Fa-f]+)", false),
             ("(?:[1-9][0-9]*)", false),
@@ -756,8 +820,8 @@ fn __action0<
     'input,
 >(
     input: &'input str,
-    (_, __0, _): (usize, String, usize),
-) -> String
+    (_, __0, _): (usize, CompUnit, usize),
+) -> CompUnit
 {
     __0
 }
@@ -768,10 +832,10 @@ fn __action1<
     'input,
 >(
     input: &'input str,
-    (_, func_def, _): (usize, String, usize),
-) -> String
+    (_, func_def, _): (usize, FuncDef, usize),
+) -> CompUnit
 {
-    func_def
+    CompUnit { func_def }
 }
 
 #[allow(unused_variables)]
@@ -780,15 +844,15 @@ fn __action2<
     'input,
 >(
     input: &'input str,
-    (_, func_type, _): (usize, String, usize),
-    (_, id, _): (usize, String, usize),
+    (_, func_type, _): (usize, FuncType, usize),
+    (_, ident, _): (usize, String, usize),
     (_, _, _): (usize, &'input str, usize),
     (_, _, _): (usize, &'input str, usize),
-    (_, block, _): (usize, String, usize),
-) -> String
+    (_, block, _): (usize, Block, usize),
+) -> FuncDef
 {
     {
-    format!("{} {}() {}", func_type, id, block)
+    FuncDef { func_type, ident, block }
   }
 }
 
@@ -799,9 +863,9 @@ fn __action3<
 >(
     input: &'input str,
     (_, __0, _): (usize, &'input str, usize),
-) -> String
+) -> FuncType
 {
-    "int".to_string()
+    FuncType::Int
 }
 
 #[allow(unused_variables)]
@@ -811,11 +875,11 @@ fn __action4<
 >(
     input: &'input str,
     (_, _, _): (usize, &'input str, usize),
-    (_, stmt, _): (usize, String, usize),
+    (_, stmt, _): (usize, Stmt, usize),
     (_, _, _): (usize, &'input str, usize),
-) -> String
+) -> Block
 {
-    format!("{{ {} }}", stmt)
+    Block { stmt }
 }
 
 #[allow(unused_variables)]
@@ -825,11 +889,11 @@ fn __action5<
 >(
     input: &'input str,
     (_, _, _): (usize, &'input str, usize),
-    (_, num, _): (usize, String, usize),
+    (_, num, _): (usize, i32, usize),
     (_, _, _): (usize, &'input str, usize),
-) -> String
+) -> Stmt
 {
-    format!("return {};", num)
+    Stmt { num }
 }
 
 #[allow(unused_variables)]
@@ -839,9 +903,9 @@ fn __action6<
 >(
     input: &'input str,
     (_, num, _): (usize, i32, usize),
-) -> String
+) -> i32
 {
-    num.to_string()
+    num
 }
 
 #[allow(unused_variables)]
