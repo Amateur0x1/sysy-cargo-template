@@ -1,5 +1,3 @@
 int main() {
-  // 忽略我的存在
-  /**ddsds**/
-  return 0;
+  return 2;  // 看起来像个颜文字
 }
