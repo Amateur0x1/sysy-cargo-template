@@ -1,9 +1,8 @@
-use koopa::ir::{entities::Value, ValueKind};
+
 use lalrpop_util::lalrpop_mod;
-use std::collections::HashMap;
 use std::env::args;
 use std::io::Result;
-use std::fs::{self, read_to_string, write};
+use std::fs::{read_to_string, write};
 use ast::*;
 use ir::{GenerateAsm};
 // 引用 lalrpop 生成的解析器
@@ -32,6 +31,6 @@ fn main() -> Result<()> {
   let driver = koopa::front::Driver::from(koopa_code);
   let program = driver.generate_program().unwrap();
   let riscv_code = program.generate().unwrap();
-  fs::write(output, riscv_code);
+  write(output, riscv_code);
   Ok(())
 }
