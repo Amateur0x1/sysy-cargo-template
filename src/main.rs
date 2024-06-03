@@ -26,11 +26,12 @@ fn main() -> Result<()> {
   // parse input file
 
   let ast = sysy::CompUnitParser::new().parse(&input).unwrap();
-  let koopa_code = ast.fmt().unwrap();
-  // 写入输出文件
-  let driver = koopa::front::Driver::from(koopa_code);
-  let program = driver.generate_program().unwrap();
-  let riscv_code = program.generate().unwrap();
-  write(output, riscv_code);
+  dbg!(&ast);
+  // let koopa_code = ast.fmt().unwrap();
+  // // 写入输出文件
+  // let driver = koopa::front::Driver::from(koopa_code);
+  // let program = driver.generate_program().unwrap();
+  // let riscv_code = program.generate().unwrap();
+  // write(output, riscv_code);
   Ok(())
 }

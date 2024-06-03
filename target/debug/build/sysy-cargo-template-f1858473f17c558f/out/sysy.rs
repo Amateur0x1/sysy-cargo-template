@@ -1,5 +1,5 @@
 // auto-generated: "lalrpop 0.20.2"
-// sha3: 786f79da4ffbce2cf8c006313f88148a04abe613b306906d2922b431a7b617be
+// sha3: 75bf50515e21768cea6285f6e610005985fed55a7824cb88dc2e87293c951dc2
 use crate::ast::{FuncType, CompUnit, Stmt, Block, FuncDef};
 #[allow(unused_extern_crates)]
 extern crate lalrpop_util as __lalrpop_util;
@@ -894,6 +894,7 @@ fn __action5<
 ) -> Stmt
 {
     Stmt { num }
+    | "return" <exp: Exp> ";" => Stmt::Return(exp)
 }
 
 #[allow(unused_variables)]

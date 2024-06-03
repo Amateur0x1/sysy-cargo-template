@@ -36,8 +36,6 @@ impl GenerateIR for CompUnit {
                 // block_content.push_str(&format!("  ret {}", exp.value));
             }
         }
-        
-
         // 返回转换后的 Rust 代码
         Ok(format!("{}{}\n}}", func_def, block_content))
     }
