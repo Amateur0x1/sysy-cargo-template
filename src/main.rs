@@ -4,7 +4,6 @@ use std::env::args;
 use std::io::Result;
 use std::fs::{read_to_string, write};
 use ir::{GenerateAsm};
-use ast_module::ast;
 // 引用 lalrpop 生成的解析器
 // 因为我们刚刚创建了 sysy.lalrpop, 所以模块名是 sysy
 lalrpop_mod!(sysy);
@@ -27,7 +26,7 @@ fn main() -> Result<()> {
   // parse input file
 
   let ast = sysy::CompUnitParser::new().parse(&input).unwrap();
-  let koopa_code = ast.to_string().unwrap();
+  let koopa_code = ast.fmt().unwrap();
   // 写入输出文件
   let driver = koopa::front::Driver::from(koopa_code);
   let program = driver.generate_program().unwrap();

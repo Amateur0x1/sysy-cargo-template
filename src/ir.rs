@@ -26,7 +26,6 @@ impl GenerateAsm for Program {
                   //
                 }
                 ValueKind::Return(ret) => {
-
                   let value_id = ret.value().unwrap();
                   let value =func_data.get_integer(value_id).unwrap();
                   riscv_code.push_str(&value.to_string());

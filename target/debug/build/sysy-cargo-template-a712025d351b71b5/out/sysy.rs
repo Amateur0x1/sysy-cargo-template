@@ -1,6 +1,6 @@
 // auto-generated: "lalrpop 0.20.2"
-// sha3: 786f79da4ffbce2cf8c006313f88148a04abe613b306906d2922b431a7b617be
-use crate::ast_module::{FuncType, CompUnit, Stmt, Block, FuncDef};
+// sha3: 75bf50515e21768cea6285f6e610005985fed55a7824cb88dc2e87293c951dc2
+use crate::ast::{FuncType, CompUnit, Stmt, Block, FuncDef};
 #[allow(unused_extern_crates)]
 extern crate lalrpop_util as __lalrpop_util;
 #[allow(unused_imports)]
@@ -12,7 +12,7 @@ extern crate alloc;
 #[allow(non_snake_case, non_camel_case_types, unused_mut, unused_variables, unused_imports, unused_parens, clippy::needless_lifetimes, clippy::type_complexity, clippy::needless_return, clippy::too_many_arguments, clippy::never_loop, clippy::match_single_binding, clippy::needless_raw_string_hashes)]
 mod __parse__CompUnit {
 
-    use crate::ast_module::{FuncType, CompUnit, Stmt, Block, FuncDef};
+    use crate::ast::{FuncType, CompUnit, Stmt, Block, FuncDef};
     #[allow(unused_extern_crates)]
     extern crate lalrpop_util as __lalrpop_util;
     #[allow(unused_imports)]
@@ -785,7 +785,7 @@ pub use self::__parse__CompUnit::CompUnitParser;
 #[rustfmt::skip]
 mod __intern_token {
     #![allow(unused_imports)]
-    use crate::ast_module::{FuncType, CompUnit, Stmt, Block, FuncDef};
+    use crate::ast::{FuncType, CompUnit, Stmt, Block, FuncDef};
     #[allow(unused_extern_crates)]
     extern crate lalrpop_util as __lalrpop_util;
     #[allow(unused_imports)]
@@ -894,6 +894,7 @@ fn __action5<
 ) -> Stmt
 {
     Stmt { num }
+    | "return" <exp: Exp> ";" => Stmt::Return(exp)
 }
 
 #[allow(unused_variables)]
